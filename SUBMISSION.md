@@ -8,7 +8,7 @@ no Composer, no npm and no build step.
 |---|---|
 | **Live product** | **https://ajaia-task.toollzen.com/** |
 | **Source code** | https://github.com/engrmuzamilkhoso/ajaia-task |
-| **Walkthrough video** | see `VIDEO_URL.txt` (⏳ pending, not recorded yet) |
+| **Walkthrough video** | https://www.loom.com/share/71077841f58249d4a89141557b41d103 |
 | **Demo accounts** | `alice@ajaia.demo`, `bob@ajaia.demo`, `carol@ajaia.demo`; password **`demo1234`** for all |
 
 ---
@@ -45,7 +45,7 @@ Carol starts with nothing and is useful as a third person.
 | AI workflow note | `AI_WORKFLOW.md` | ✅ (a few lines marked **[DEVELOPER TO CONFIRM]**) |
 | SUBMISSION.md listing what is included | `SUBMISSION.md` (this file) | ✅ |
 | Live product URL | `LIVE_URL.txt` → https://ajaia-task.toollzen.com/ | ✅ Deployed and verified |
-| Text file with the walkthrough video URL | `VIDEO_URL.txt` | ⏳ Pending |
+| Text file with the walkthrough video URL | `VIDEO_URL.txt` → https://www.loom.com/share/71077841f58249d4a89141557b41d103 | ✅ |
 | Screenshots | `screenshots/` (8 PNGs from the running app) | ✅ |
 
 Inside `source-code/`:
