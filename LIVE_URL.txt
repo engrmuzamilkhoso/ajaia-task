@@ -1,0 +1,4 @@
+PENDING: the app has not been deployed yet.
+Replace this line with the verified live URL (e.g. https://ajaia.example.com) once it is uploaded to PHP hosting.
+
+Demo login: alice@ajaia.demo / demo1234 (also bob@ajaia.demo, carol@ajaia.demo)

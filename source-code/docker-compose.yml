@@ -1,5 +1,7 @@
 # Local development only. Production is plain PHP hosting: copy the files, set
 # config/config.local.php, and the app creates its own tables on first request.
+name: ajaia
+
 services:
   app:
     build: ./docker

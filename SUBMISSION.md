@@ -2,19 +2,25 @@
 
 ## Included
 
-| Deliverable | Location | Status |
+| Requested item | Where it is | Status |
 |---|---|---|
-| Source code (PHP, HTML, CSS, vanilla JS) | repository root, `api/`, `includes/`, `assets/` | ✅ Complete |
-| Database schema and seed data | `database/schema.sql`, `database/seed.sql` (also auto-applied on first request) | ✅ Complete |
-| Local environment | `docker-compose.yml`, `docker/` | ✅ Verified (`docker compose up -d --build`) |
-| Production config template | `config/config.local.example.php` | ✅ Complete |
-| Automated tests | `tests/run-tests.php` | ✅ 33/33 passing (see below) |
-| README (setup, deploy, demo accounts, formats, limitations) | `README.md` | ✅ |
-| Architecture notes | `ARCHITECTURE.md` | ✅ |
-| AI workflow notes | `AI_WORKFLOW.md` | ⚠️ Has **[DEVELOPER TO CONFIRM]** items to fill in |
-| Screenshots | `docs/screenshots/` (8 PNGs, captured from the running app) | ✅ |
-| Walkthrough video | `VIDEO_URL.txt` | ⏳ **Pending, not recorded yet** |
-| Live deployment URL | none | ⏳ **Not deployed.** No hosting credentials were available. The app is ready to upload (see README → *Deploy to PHP hosting*) |
+| The source code | `source-code/`: PHP pages, `api/`, `includes/`, `assets/`, `database/`, `tests/`, `docker/` | ✅ Complete |
+| README.md with local setup and run instructions | `README.md` | ✅ |
+| Short architecture note | `ARCHITECTURE.md` | ✅ |
+| AI workflow note | `AI_WORKFLOW.md` | ⚠️ Has **[DEVELOPER TO CONFIRM]** items to fill in |
+| SUBMISSION.md listing what is included | `SUBMISSION.md` (this file) | ✅ |
+| Live product URL | `LIVE_URL.txt` | ⏳ **Pending: not deployed yet** |
+| Text file with the walkthrough video URL | `VIDEO_URL.txt` | ⏳ **Pending: not recorded yet** |
+| Screenshots | `screenshots/` (8 PNGs captured from the running app) | ✅ |
+
+Inside `source-code/`:
+
+| Part | Location |
+|---|---|
+| Database schema and seed data (also applied automatically on first request) | `source-code/database/schema.sql`, `source-code/database/seed.sql` |
+| Local environment (Docker) | `source-code/docker-compose.yml`, `source-code/docker/` |
+| Production config template | `source-code/config/config.local.example.php` |
+| Automated tests (33/33 passing) | `source-code/tests/run-tests.php` |
 
 ## Demo login
 
@@ -28,7 +34,7 @@ Switch users from the account menu (top right) → **Switch demo account**.
 
 ## Verification performed
 
-**Automated:** `docker compose exec app php tests/run-tests.php`. The last run passed **33/33**:
+**Automated:** run `docker compose exec app php tests/run-tests.php` from `source-code/`. The last run passed **33/33**:
 
 - Documents (6): create and save formatted content, the default title, stale save → 409 with no overwrite, sanitize on save, rename with normalization, delete with share cascade
 - Sharing and authorization (8): unauthorized users blocked from read, save, rename, delete, share and info (404); a shared user can read and edit; a shared user can't rename, delete, share or revoke (403); revoke removes access; duplicate shares prevented; can't share with yourself or a user who doesn't exist; owned and shared lists kept separate; sharing info

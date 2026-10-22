@@ -1,5 +1,7 @@
 # Architecture
 
+File paths in this note are relative to `source-code/`.
+
 ## Overview
 
 Ajaia Docs is a traditional multi-page PHP application. Each `.php` file in the

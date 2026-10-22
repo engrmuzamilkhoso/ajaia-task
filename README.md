@@ -8,6 +8,24 @@ no Composer, no npm and no build step.
 - Production runs on **any ordinary PHP + MySQL hosting**. Upload the files and
   enter your database credentials in one file. Nothing needs to be run from a command line.
 
+**Live URL:** see [LIVE_URL.txt](LIVE_URL.txt) · **Walkthrough video:** see [VIDEO_URL.txt](VIDEO_URL.txt) ·
+**Screenshots:** [screenshots/](screenshots/)
+
+## What's in this folder
+
+```text
+README.md          ← this file: setup and run instructions
+ARCHITECTURE.md    ← architecture note
+AI_WORKFLOW.md     ← AI workflow note
+SUBMISSION.md      ← exactly what is included
+LIVE_URL.txt       ← live product URL
+VIDEO_URL.txt      ← walkthrough video URL
+screenshots/       ← screenshots of the running app
+source-code/       ← the complete application (this folder is what gets deployed)
+```
+
+All commands below are run from inside `source-code/`.
+
 ---
 
 ## Features
@@ -40,6 +58,7 @@ no Composer, no npm and no build step.
 Requires Docker Desktop (or Docker Engine with the Compose plugin).
 
 ```bash
+cd source-code
 docker compose up -d --build
 ```
 
@@ -66,8 +85,8 @@ for GUI clients.
 With PHP 8.1+ and MySQL installed (for example XAMPP or Laragon):
 
 1. Create an empty database, for example `ajaia`.
-2. Copy `config/config.local.example.php` to `config/config.local.php` and fill in the credentials.
-3. Run `php -S localhost:8000` from the project root and open http://localhost:8000.
+2. Copy `source-code/config/config.local.example.php` to `source-code/config/config.local.php` and fill in the credentials.
+3. Run `php -S localhost:8000` from inside `source-code/` and open http://localhost:8000.
 
 ## Demo accounts
 
@@ -108,19 +127,18 @@ Works on typical cPanel, Plesk, Hostinger or DirectAdmin hosting with PHP 8.1+ a
 
 1. **Create a MySQL database and user** in your hosting control panel and note
    the host (usually `localhost`), database name, username and password.
-2. **Create the config file.** Copy `config/config.local.example.php` to
-   `config/config.local.php` and fill in those four values. Keep `'debug' => false`.
-3. **Upload the project** to your web root (for example `public_html/`) or to any
+2. **Create the config file.** Copy `source-code/config/config.local.example.php` to
+   `source-code/config/config.local.php` and fill in those four values. Keep `'debug' => false`.
+3. **Upload the contents of `source-code/`** to your web root (for example `public_html/`) or to any
    sub-folder, using the File Manager or FTP. You don't need to upload `docker/`,
-   `docker-compose.yml`, `tests/` or the `.md` files, but they're harmless:
-   `.htaccess` blocks access to them.
+   `docker-compose.yml` or `tests/`, but they're harmless: `.htaccess` blocks access to them.
 4. **Open the site.** On the first visit the app creates the tables and the
    demo accounts automatically.
 5. **Enable HTTPS** (most hosts offer free Let's Encrypt). The session cookie
    is marked `Secure` automatically when the site is served over HTTPS.
 
-If you'd rather create the tables yourself, import `database/schema.sql` and then
-`database/seed.sql` in phpMyAdmin. The automatic install then has nothing to do.
+If you'd rather create the tables yourself, import `source-code/database/schema.sql` and then
+`source-code/database/seed.sql` in phpMyAdmin. The automatic install then has nothing to do.
 
 **Hosting notes**
 - The PHP `zip` extension is only needed for `.docx` import. Without it, `.txt` and `.md`
@@ -162,7 +180,7 @@ If you'd rather create the tables yourself, import `database/schema.sql` and the
 ## Project structure
 
 ```text
-ajaia/
+source-code/
 ├── index.php            → redirects to dashboard or login
 ├── login.php            → sign-in form + demo account buttons
 ├── logout.php           → POST sign-out / switch account
@@ -176,9 +194,7 @@ ajaia/
 ├── database/            → schema.sql, seed.sql
 ├── assets/              → css/style.css, js/*.js, images/favicon.svg
 ├── tests/run-tests.php  → test suite
-├── docs/screenshots/    → screenshots of the running app
-├── docker/ + docker-compose.yml → local dev only
-└── README.md, ARCHITECTURE.md, AI_WORKFLOW.md, SUBMISSION.md, VIDEO_URL.txt
+└── docker/ + docker-compose.yml → local dev only
 ```
 
 ## Known limitations
