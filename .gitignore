@@ -1,0 +1,10 @@
+# Real credentials live here and must never be committed
+config/config.local.php
+
+# Local / OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+/tmp/

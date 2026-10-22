@@ -1,0 +1,41 @@
+# Local development only. Production is plain PHP hosting: copy the files, set
+# config/config.local.php, and the app creates its own tables on first request.
+services:
+  app:
+    build: ./docker
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ajaia
+      DB_USER: ajaia
+      DB_PASS: ajaia_dev_password
+      APP_DEBUG: "1"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ajaia
+      MYSQL_USER: ajaia
+      MYSQL_PASSWORD: ajaia_dev_password
+      MYSQL_ROOT_PASSWORD: ajaia_root_password
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/mysql-init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pajaia_root_password"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  db_data:

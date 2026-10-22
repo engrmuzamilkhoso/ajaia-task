@@ -1,0 +1,13 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Never serve docs, SQL, config, env or dotfiles directly.
+<FilesMatch "(\.(md|sql|yml|yaml|ini|log|lock|txt|dist)$|^\.|^Dockerfile$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "same-origin"
+    Header always set X-Frame-Options "DENY"
+</IfModule>
