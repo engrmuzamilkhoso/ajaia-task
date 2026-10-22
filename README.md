@@ -8,7 +8,7 @@ no Composer, no npm and no build step.
 - Production runs on **any ordinary PHP + MySQL hosting**. Upload the files and
   enter your database credentials in one file. Nothing needs to be run from a command line.
 
-**Live URL:** see [LIVE_URL.txt](LIVE_URL.txt) · **Walkthrough video:** see [VIDEO_URL.txt](VIDEO_URL.txt) ·
+**Live URL:** https://ajaia-task.toollzen.com/ · **Walkthrough video:** see [VIDEO_URL.txt](VIDEO_URL.txt) ·
 **Screenshots:** [screenshots/](screenshots/)
 
 ## What's in this folder
